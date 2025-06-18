@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+ 
+ body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: white
+ }
+ 
+ .section-container {
+    background: white;
+    padding: 40px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+ }
+ 
+ .section-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+ }
+ 
+ .section-container label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #555;
+ }
+ 
+ .section-container input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+ }
+ 
+ .section-container button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #ff7043;
+    color: white;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+ }
+ 
+ .section-container button:hover {
+    background: #ff7043;
+ }
+ 
+ .section-container p {
+    margin-top: 15px;
+    font-size: 14px;
+ }
+ 
+ .section-container a {
+    text-decoration: none;
+    color: #1e3c72;
+    font-weight: bold;
+    transition: 0.3s;
+ }
+ 
+ .section-container a:hover {
+    color: #ffcc00;
+ }
+ 
+ @media (max-width: 400px) {
+  .section-container {
+      width: 90%;
+      padding: 30px;
+    }
+ }

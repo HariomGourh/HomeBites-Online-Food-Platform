@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeBites.com</title>
+  <link rel="stylesheet" href="AtTheInstantStyle.css">
+  <link rel="stylesheet" href="popupStyle.css"> 
+  <link rel="icon" type="image/png" href="logo.png"> 
+  <script src="firebase.js"></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./logo.png" alt="HomeBites Logo">
+            <h1>HomeBites</h1>
+        </div>
+        <nav> 
+            <ul>
+                <li><a href="#" onclick="showHome()">Home</a></li>
+                <li><a href="#" onclick="showAbout()">About</a></li>
+                <li><a href="food.html" onclick="showSellFood()">SellFood</a></li>
+                <li><a href="displayFood.html" onclick="showFood()">Our Food</a></li>
+                <li><a href="#" onclick="showContact()">Contact</a></li>
+                <li><a href="#" class="btn" onclick="openPopup()">Login</a></li> 
+                <li><a href="sign.html" class="btn" onclick="openSignupPopup()">Sign Up</a></li>
+
+            </ul>
+        </nav>
+    </header>    
+    <!-- it is Search Section part -->
+    <section class="hero">
+      <div class="search-container">
+        <div class="search-box">
+          <i class="fas fa-utensils icon"></i>
+          <input type="text" id="foodSearch" placeholder="Search homemade food...">
+          <button onclick="searchFood()"><i class="fas fa-search"></i></button> 
+        </div>
+
+        <div class="search-box">
+          <i class="fas fa-map-marker-alt icon"></i> 
+          <input type="text" id="locationSearch" placeholder="Enter delivery location...">
+          <button onclick="searchLocation()"><i class="fas fa-location-arrow"></i></button> 
+        </div>
+      </div>
+
+      <h2>Delicious Homemade Food Delivered to You</h2>
+      <img src="foodimg.jpeg" class="food-image" alt="Delicious Food">
+      <p>Order fresh and tasty homemade meals from local home chefs.</p>
+      <a href="displayFood.html" class="btn" onclick="showFood()">Explore Now</a>
+
+    </section>
+
+    <!-- This is about section. -->
+    <section id="aboutSection" class="about-section" style="display: none;">
+      <h2>About HomeBites.com</h2>
+      <p><strong>HomeBites</strong> is a platform that connects passionate home chefs with hungry customers 
+        looking for fresh, delicious, and authentic homemade meals. Inspired by platforms like Swiggy and Zomato, 
+        we bring the warmth of home-cooked food right to your doorstep.
+      </p>
+     
+      <p>We empower local cooks to showcase their culinary talents and earn from their kitchens. Whether you're
+         craving North Indian thalis, South Indian dosas, Bengali sweets, or fusion delights, HomeBites has
+          something for everyone – prepared with love and served with hygiene.
+      </p>
+ 
+      <p>Why choose HomeBites?</p>
+      <ul>
+        <li>✔ 100% homemade food</li>
+        <li>✔ Verified local home chefs</li>
+        <li>✔ Safe, clean & contactless delivery</li>
+        <li>✔ Affordable prices</li>
+        <li>✔ Support local talent and women entrepreneurs</li>
+      </ul>
+ 
+      <p>Join us in making homemade food more accessible, sustainable, and enjoyable for all!</p>
+      <button class="back-btn" onclick="showHome()">← Back to Home</button>
+
+    </section>
+
+    <!-- This is OurFood section  -->
+    <section id="foodSection" class="food-section" style="display: none;">
+      <h2>Our Homemade Delights</h2>
+      <div class="food-container">
+        <div class="food-card">
+          <img src="https://media.istockphoto.com/id/1388762314/photo/indian-dal-with-flatbread.jpg?s=612x612&w=0&k=20&c=d1dG6GY1dc4KfI5zFe3QHNz7hcsnbh_7OWDplFV4TPE=" alt="Daal Roti">
+          <div class="food-info">
+            <h3>Daal Roti</h3>
+            <p>Wholesome lentils with fresh roti - homemade comfort!</p>
+            <div class="price">₹80 <span class="discount">₹100</span></div>
+            <button class="order-btn">Order Now</button>
+          </div>
+        </div>
+ 
+        <div class="food-card">
+          <img src="https://media.istockphoto.com/id/1292633104/photo/chole-bhature-spicy-chick-peas-curry-also-known-as-chole-or-channa-masala-is-traditional.jpg?s=2048x2048&w=is&k=20&c=rMXqlZIkNbgSDFO0B5aJju71eDN6AmipkmiZCIpdvVc=" alt="Puri Sabji">
+          <div class="food-info">
+            <h3>Puri Sabji</h3>
+            <p>Golden puris with spicy aloo sabji, pure desi vibes!</p>
+            <div class="price">₹90 <span class="discount">₹120</span></div>
+            <button class="order-btn">Order Now</button>
+          </div>
+        </div>
+ 
+        <div class="food-card">
+          <img src="https://media.istockphoto.com/id/844199458/photo/methi-paratha.jpg?s=1024x1024&w=is&k=20&c=VvRfEDJlSsmQLAg3dcZDmJDsEOlN7QNusueGWK_0O_o=" alt="Methi Paratha">
+          <div class="food-info">
+            <h3>Methi ke Parathe</h3>
+            <p>Crispy & healthy methi parathas made with love.</p>
+            <div class="price">₹70 <span class="discount">₹90</span></div>
+            <button class="order-btn">Order Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+ 
+ <!--this is contact section -->
+ <section id="contactSection" class="contact-section" style="display: none;">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feedback, or want to join as a home chef, feel free to reach out!</p>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <p><i class="fas fa-map-marker-alt"></i> HomeBites Gwalior, India</p>
+            <p><i class="fas fa-phone"></i> +91 8359889794, 8871272093</p>
+            <p><i class="fas fa-envelope"></i> support@homebites.com</p>
+        </div>
+
+        <div class="contact-form">
+            <h3>Send Us a Message</h3>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <button class="back-btn" onclick="showHome()">← Back to Home</button>
+
+  </section> 
+
+  <!-- Popup Window for Login Form -->                                 
+  <!--  Popup Window for Login Form (Firebase Integrated) -->
+  <div id="loginPopup" class="popup-container">
+    <div class="popup">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>Login to Your Account</h2>
+      <form onsubmit="Onlogin(event)">
+        <label for="username">Username or Email</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+        <button type="submit">Login</button>
+        <p id="message"></p>
+        <p><a href="signup.html">Don't have an account? Sign Up</a></p>
+        <p><a href="#">Forgot Password?</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!--  Firebase Login Script -->
+  <script type="module"> 
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAobplP9lNayzaGpuZezlG3Tkb3yidu-Ds",
+      authDomain: "homebites-ccdd0.firebaseapp.com",
+      databaseURL: "https://homebites-ccdd0-default-rtdb.firebaseio.com",   
+      projectId: "homebites-ccdd0",
+      storageBucket: "homebites-ccdd0.appspot.com",
+      messagingSenderId: "442253549942",
+      appId: "1:442253549942:web:f782ad908297616b3f5a57"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.Onlogin = function(event) {
+      event.preventDefault();
+      const email = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const message = document.getElementById('message');
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          message.style.color = 'green';
+          message.textContent = "Login successful!";
+          setTimeout(() => {
+            window.location.href = "displayFood.html";
+          }, 2);
+        })
+        .catch((error) => {
+          message.style.color = 'red';
+          message.textContent = error.message;
+        });
+    };
+  </script>
+
+
+  <script>
+    function openPopup() {
+      document.getElementById("loginPopup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("loginPopup").style.display = "none";
+    }
+
+    function openSignupPopup() {
+      document.getElementById("signupPopup").style.display = "flex";
+    }
+
+    function closeSignupPopup() {
+      document.getElementById("signupPopup").style.display = "none";
+    }
+
+    function showAbout() {
+      document.querySelector(".hero").style.display = "none";
+      document.getElementById("aboutSection").style.display = "block";
+      closePopup();
+      closeSignupPopup();
+    }
+
+    function showHome() {
+      document.querySelector(".hero").style.display = "block";
+      document.getElementById("aboutSection").style.display = "none";
+      closePopup();
+      closeSignupPopup();
+    }
+
+    function showFood() {
+      document.querySelector(".hero").style.display = "none";
+      document.getElementById("aboutSection").style.display = "none";
+      document.getElementById("foodSection").style.display = "block";
+      closePopup();
+      closeSignupPopup();
+    }
+
+    function showContact() {
+      document.querySelector(".hero").style.display = "none";
+      document.getElementById("aboutSection").style.display = "none";
+      document.getElementById("foodSection").style.display = "none"; 
+      document.getElementById("contactSection").style.display = "block";
+      closePopup();
+      closeSignupPopup();
+    }
+  </script>
+
+</body>
+</html>        

@@ -1,0 +1,112 @@
+/* Popup Background */
+.popup-container {
+    display: none; /* hides the popup by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+ .popup {
+    background: linear-gradient(135deg, #fff 40%, #ffe7d1 100%);
+    padding: 30px;
+    width: 380px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+ }
+ 
+ .popup-container.show {
+    opacity: 1;
+ }
+ 
+ .popup.show {
+    transform: scale(1);
+ }
+ 
+ 
+ .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ff5733;
+    font-weight: bold;
+    transition: 0.3s;
+ }
+ 
+ .close-btn:hover {
+    color: #e63b1f;
+ }
+ 
+ .popup form {
+    display: flex;
+    flex-direction: column;
+ }
+ 
+ .popup form label {
+    font-size: 14px;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #444;
+ }
+ 
+ .popup form input {
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #ff5733;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+ }
+ 
+ .popup form input:focus {
+    border-color: #e63b1f;
+    box-shadow: 0px 0px 8px rgba(255, 87, 51, 0.5);
+ }
+ 
+ 
+ .popup form button {
+    background: #ff5733;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+ }
+ 
+ .popup form button:hover {
+    background: #e63b1f;
+    box-shadow: 0px 5px 15px rgba(255, 87, 51, 0.4);
+ }
+ 
+ /* Links */
+ .popup form p {
+    margin-top: 10px;
+ }
+ 
+ .popup form a {
+    color: #ff5733;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+ }
+ 
+ .popup form a:hover {
+    text-decoration: underline;
+    color: #e63b1f;
+ }

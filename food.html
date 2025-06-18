@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Entry Form</title>
+  <link rel="stylesheet" href="foodStyle.css">
+</head>
+<body>
+  <header>
+    <h2>Food Entry Form</h2>
+  </header>
+
+  <form id="foodForm">
+    <label for="Sellername">seller Name</label>
+    <input type="text" id="Sellername" required>
+
+    <label for="name">Food Name</label>
+    <input type="text" id="name" required>
+
+    <label for="price">Price (₹)</label>
+    <input type="number" id="price" required>
+
+    <label for="rating">Rating (1-5)</label>
+    <input type="number" id="rating" min="1" max="5" required>
+
+    <label for="discount">Discount (%)</label>
+    <input type="number" id="discount" required>
+
+    <label for="imageUrl">Image URL</label>
+    <input type="url" id="imageUrl" required>
+
+    <label for="sellerMessage">Message from Seller</label>
+    <textarea id="sellerMessage" rows="3" required></textarea>
+
+    <button type="submit">Submit</button>
+    <div id="message"></div>
+  </form>
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+  import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAobplP9lNayzaGpuZezlG3Tkb3yidu-Ds",
+    authDomain: "homebites-ccdd0.firebaseapp.com",
+    databaseURL: "https://homebites-ccdd0-default-rtdb.firebaseio.com",
+    projectId: "homebites-ccdd0",
+    storageBucket: "homebites-ccdd0.appspot.com",
+    messagingSenderId: "442253549942",
+    appId: "1:442253549942:web:f782ad908297616b3f5a57"
+  };
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const form = document.getElementById("foodForm");
+  const messageDiv = document.getElementById("message");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const foodData = {
+      name: document.getElementById("name").value,
+      Sellername: document.getElementById("Sellername").value,
+      price: parseFloat(document.getElementById("price").value),
+      rating: parseFloat(document.getElementById("rating").value),
+      discount: parseFloat(document.getElementById("discount").value),
+      imageUrl: document.getElementById("imageUrl").value,
+      sellerMessage: document.getElementById("sellerMessage").value,
+      timestamp: new Date().toISOString()
+    };
+
+    push(ref(db, 'foods'), foodData)
+    .then(() => {
+      messageDiv.style.color = 'green';
+      messageDiv.textContent = "Food item submitted successfully!";
+      form.reset();
+    })
+    .catch((error) => {
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = "Error: " + error.message;
+    });
+  });
+</script>
+</body>
+</html>

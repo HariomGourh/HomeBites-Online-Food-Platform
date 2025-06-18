@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #d32f2f;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+form {
+  background: #fff8f0; /* Matches body */
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Center heading in form */
+h2 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 42rem;
+}
+
+/* Style labels and inputs in a row */
+form label {
+  display: inline-block;
+  width: 40%;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  vertical-align: middle;
+  color: #333;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="url"],
+form textarea {
+  width: 58%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  vertical-align: middle;
+  transition: border 0.3s ease;
+  resize: vertical;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form input[type="url"]:focus,
+form textarea:focus {
+  border-color: #ff6b35;
+  outline: none;
+}
+
+/* Textarea should be aligned properly */
+form textarea {
+  vertical-align: top;
+}
+
+/* Submit button style */
+button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff6b35;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: inherit;
+}
+
+button:hover {
+  background-color: #e85a2a;
+}
+
+/* Message styling */
+#message {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: green;
+  text-align: center;
+}
